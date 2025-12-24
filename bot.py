@@ -57,9 +57,10 @@ async def price_sender(user_id: int, base_ticker: str, interval_sec: int, app):
             )
             return  # виходимо з циклу, задача завершується
 
+        # Повна точність без округлення
         await app.bot.send_message(
             chat_id=user_id,
-            text=f"{base_ticker.upper()} ({symbol}) = ${price:,.2f} USDT (MEXC)"
+            text=f"{base_ticker.upper()} ({symbol}) = ${price} USDT (MEXC)"
         )
 
         try:
